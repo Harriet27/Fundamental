@@ -1,0 +1,31 @@
+<script>
+    var stockApple = 10;
+    var stockMango = 10;
+    var stockKiwie = 10;
+    
+    var totalApple = parseInt(prompt("Berapa kg apel yang ingin dibeli?"));
+    for (totalApple; totalApple > stockApple;){
+        alert ("Maaf, stok apel tidak mencukupi");
+        var totalApple = parseInt(prompt ("Berapa kg apel yang ingin dibeli?"));
+        }
+    var totalMango = parseInt(prompt ("Berapa kg mangga yang ingin dibeli?"));
+    for (totalMango; totalMango > stockMango;){
+        alert ("Maaf, stok mangga tidak mencukupi");
+        var y = parseInt(prompt ("Berapa kg mangga yang ingin dibeli?"));
+    }
+    var totalKiwie = parseInt(prompt ("Berapa kg kiwi yang ingin dibeli?"));
+    for (totalKiwie ; totalKiwie > stockKiwie;) {
+        alert ("Maaf, stok kiwi tidak mencukupi");
+        var z = parseInt(prompt ("Berapa kg kiwi yang ingin dibeli?"));
+    }
+    
+    var sum = ((totalApple * 10000) + (totalMango * 20000) + (totalKiwie * 30000));
+    
+    var money = prompt ("Total belanja anda adalah sebagai berikut \n Apel = " + totalApple + " kg \n" + "Mangga = " + totalMango + " kg \n" + "Kiwi = " + totalKiwie + " kg \n \n Total belanja anda sebesar = Rp. " + sum.toLocaleString("id-ID") + ",00 \n \n Silahkan masukkan uang untuk membayar");
+    
+    for(money; money < sum;) {
+        alert("Maaf, uang anda kurang Rp. "+ parseInt(sum-money).toLocaleString("id-ID") + ",00");
+        var money = prompt ("Total belanja anda adalah sebagai berikut \n Apel = " + totalApple + " kg \n Mangga = " + totalMango + " kg \n Kiwi = " + totalKiwie + " kg \n \n Total belanja anda sebesar = Rp. "+ sum.toLocaleString("id-ID") + ",00 \n \n Silahkan masukkan uang untuk membayar");
+    }
+alert("Terima kasih telah berbelanja, kembalian anda adalah Rp. " + parseInt(money-sum).toLocaleString("id-ID") + ",00");
+</script>

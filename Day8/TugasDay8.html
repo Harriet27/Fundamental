@@ -1,0 +1,11 @@
+<script>
+function sumUnik (str) {
+  var split = str.split('plus');
+  var output = 0;
+  for (var i = 0; i < split.length; i++) {
+    output += parseInt(split[i]);
+  }
+  return output;
+}
+console.log(sumUnik("1plus2plus3"));
+</script>

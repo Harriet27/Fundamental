@@ -1,0 +1,13 @@
+<script>
+    const brpThn = (init, rate, immig, target) => {
+        var count = 0;
+        while (init <= target) {
+            init += (init * (rate/100)) + immig;
+            count++;
+        }
+        return `${count} Tahun`;
+}
+console.log(brpThn(1000, 2, 50, 1200)) // 3 Tahun
+console.log(brpThn(1500, 5, 100, 5000)) // 15 Tahun
+console.log(brpThn(1500000, 2.5, 10000, 2000000)) // 10 Tahun
+</script>

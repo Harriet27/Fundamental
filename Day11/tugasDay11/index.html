@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TokoKu :)</title>
+    <script defer src="./main.js"></script>
+    <style>
+        th,tr,td,table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 15px;
+        }
+        .buttonAdd {
+            padding: 5px 12px 5px 12px;
+        }
+        #payment, #dataAdd {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <form>
+            <!-- FIELD FILTER -->
+            <fieldset>
+                <legend>Search</legend>
+                <p>Nama : <input type="text" id="namaFilter" oninput="filterNama()"></p>
+                <p>Harga : <input type="number" id="hargaMin" onchange="filterHarga()"> - <input type="number" id="hargaMax" onchange="filterHarga()"></p>
+                <p>Category : <select name="" id="categoryInput2" onchange="filterCategory()"></select></p>
+            </fieldset>
+
+            <!-- FIELD INPUT -->
+            <fieldset>
+                <legend>Input Data</legend>
+                <table>
+                    <td>
+                        <input type="text" id="nama" placeholder="Nama">
+                    </td>
+                    <td>
+                        <input type="number" id="harga" placeholder="Harga">
+                    </td>
+                    <td>
+                        <select name="category" id="categoryInput">
+                            <!-- Shown at JS -->
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number" id="stock" placeholder="Stok">
+                    </td>
+                </table>
+                <br>
+                <input type="button" class="buttonAdd" value="Add Item" onclick="addData()">
+            </fieldset>
+
+            <!-- FIELD OUTPUT -->
+            <fieldset>
+                <legend>Data List</legend>
+                <table>
+                    <thead>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Buy</th>
+                        <th colspan="2">Action</th>
+                    </thead>
+                    <tbody id="output">
+                        <!-- Shown at JS -->
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <!-- FIELD CART -->
+            <fieldset>
+                <legend>Shopping Cart</legend>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Category</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart">
+                        <!-- Shown at JS -->
+                    </tbody>
+                </table>
+                <input type="button" value="Payment" id="payment" onclick="">
+            </fieldset>
+        </form>
+    </center>
+</body>
+</html>

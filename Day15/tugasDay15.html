@@ -1,0 +1,52 @@
+<script>
+/*
+input = [1,4,-2,-9,5,-21]
+output = [-1,-4,2,9,-5,21]
+
+2 string, hrs berurutan, dan terpanjang
+input = "treysut","rtelsit"
+output = "test"
+*/
+
+// Tugas 1
+function swapMin (arr) {
+    var output = [];
+    for (var i = 0; i < arr.length; i++) {
+        output.push(arr[i] * -1);
+    }
+    return output;
+}
+console.log(swapMin([1,4,-2,-9,5,-21]));
+
+// Tugas 2
+function printSame (str1, str2) {
+    var temp = [];
+    var splitX = str1.split('');
+    var splitY = str2.split('');
+    for (i = 0; i < splitX.length; i++) {
+        for (j = 0; j < splitY.length; j++) {
+            if (splitX.length > splitY.length) {
+                if (splitX[i] === splitY[j] && (splitX.indexOf(splitX[i]) <= splitY.indexOf(splitY[j]))) {
+                    temp.push(splitX[i]);
+                }
+            } else {
+                if (splitX[i] === splitY[j] && (splitX.indexOf(splitX[i]) <= splitY.indexOf(splitY[j]))) {
+                    temp.push(splitY[j]);
+                }
+            }
+        }
+    }
+    var output = [];
+    for (i = 0; i < temp.length; i++) {
+        if (temp[i] !== temp[i-1]) {
+            output.push(temp[i]);
+        }
+    }
+    return output;
+}
+console.log(findDuplicate('ABAZDC','BACBAD')) // ABAD
+console.log(findDuplicate('AGGTAB','GXTXAYB')) // GTAB
+console.log(findDuplicate('aaaa','aa')) // aa
+console.log(findDuplicate('','....')) // ''
+console.log(findDuplicate('ABBA','ABCABA')) // ABBA
+</script>

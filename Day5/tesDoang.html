@@ -1,0 +1,122 @@
+<script>
+    var buah = ['Apple', 'Grape', 'Orange'];
+    var stock = [10, 7, 5];
+    var harga = [10000, 20000, 30000];
+    var listbuah = [];
+    var cart = [];
+    var proteksi1 = true;
+    
+    while (proteksi1) {
+        var opt = prompt("Apa yang ingin anda lakukan? \n\n 0. Menampilkan daftar buah \n 1. Menambah buah \n 2. Menghapus buah \n 3. Membeli buah \n 4. Keluar")
+        
+        if (opt == 0) {
+            for (i = 0; i < buah.length; i++) {
+                listbuah += ((i + 1) + '. ' + buah[i] + ' | ' + stock[i] + ' | ' + harga[i] + '\n');
+            }
+            alert(listbuah)
+            // var listbuah = []
+            var konfirmasiExit = confirm("Apakah anda ingin kembali ke menu?")
+            if (konfirmasiExit === false) {
+                proteksi1 = false
+            }
+        } 
+        
+        else if (opt == 1) {
+            buah.push(prompt("Silahkan masukkan nama buah"));
+            stock.push(prompt("Silahkan masukkan jumlah stock buah tersebut"));
+            harga.push(prompt("Silahkan masukkan harga buah tersebut"));
+            for (i = 0; i < buah.length; i++) {
+                listbuah += ((i + 1) + '. ' + buah[i] + ' | ' + stock[i] + ' | ' + harga[i] + '\n');
+            }
+            alert(listbuah)
+            // var listbuah = []
+            var konfirmasiExit = confirm("Apakah anda ingin kembali ke menu?")
+            if (konfirmasiExit === false) {
+                proteksi1 = false
+            }
+        } 
+        
+        else if (opt == 2) {
+            for (i = 0; i < buah.length; i++) {
+                listbuah += ((i + 1) + '. ' + buah[i] + ' | ' + stock[i] + ' | ' + harga[i] + '\n');
+            }
+            var hapus = prompt("Silahkan masukkan nomor buah yang ingin dihapus\n\n" + listbuah)
+            // var listbuah = []
+            buah.splice(hapus - 1, 1);
+            stock.splice(hapus - 1, 1);
+            harga.splice(hapus - 1, 1);
+            for (i = 0; i < buah.length; i++) {
+                listbuah += ((i + 1) + '. ' + buah[i] + ' | ' + stock[i] + ' | ' + harga[i] + '\n');
+            }
+            alert("Berikut adalah list buah yang baru:\n" + listbuah)
+            alert(listbuah)
+            var listbuah = []
+            var konfirmasiExit = confirm("Apakah anda ingin kembali ke menu?")
+            if (konfirmasiExit === false) {
+                proteksi1 = false
+            }
+        } else if (opt == 3) {
+            var inputBeli = [];
+            var beli = [];
+            if (!listbuah.length) {
+                alert("Buah yang dibeli masih kosong")
+                proteksi1 = true
+                continue
+            }
+            for (i = 0; i < listbuah.length; i++) {
+                var proteksi = true
+                while (proteksi) {
+                    var inputBeli = (parseInt(prompt("Berapa banyak " + listbuah[i] + " yang ingin anda beli?\n\n" + "Stock: " + stock[i] + "\nHarga: " + harga[i])))
+                    if (inputBeli <= stock[i] && inputBeli >= 0) {
+                        beli.push(inputBeli);
+                        proteksi = false
+                    } else {
+                        alert("Maaf, stock tidak cukup atau input anda salah")
+                    }
+                }
+            }
+            var biaya = [];
+            for (i = 0; i < buah.length; i++) {
+                biaya.push(parseInt(harga[i] * beli[i]))
+            }
+            var rincian = [];
+            for (i = 0; i < buah.length; i++) {
+                rincian += buah[i] + ": " + beli[i] + " x " + harga[i] + " = " + biaya[i] + "\n"
+            }
+            var total = 0
+            for (i = 0; i < buah.length; i++) {
+                total += biaya[i]
+            }
+            alert("Berikut rincian belanja anda:\n\n" + rincian + '\n' + "Total belanja anda adalah: " + total);
+            var proteksi2 = true
+            while (proteksi2) {
+                var pembayaran = parseInt(prompt("Harap masukkan uang untuk pembayaran\n\nYang harus dibayar: " + total))
+                if (pembayaran == total) {
+                    alert("Uang anda pas, terima kasih telah berbelanja");
+                    var proteksi2 = false
+                    var konfirmasiExit = confirm("Apakah anda ingin kembali ke menu?")
+                    if (konfirmasiExit === false) {
+                        proteksi1 = false
+                    }
+                } else if (pembayaran > total) {
+                    alert("Kembalian anda adalah " + (pembayaran - total) + ", terima kasih telah berbelanja");
+                    var proteksi2 = false
+                    var konfirmasiExit = confirm("Apakah anda ingin kembali ke menu?")
+                    if (konfirmasiExit === false) {
+                        proteksi1 = false
+                    }
+                } else {
+                    alert("Maaf, uang anda kurang atau input anda salah")
+                }
+            }
+        } else if (opt == 4) {
+            alert("Anda akan keluar dari aplikasi.")
+            proteksi1 = false
+        } else {
+            alert("Input anda salah, silahkan coba kembali.")
+        }
+    }
+    if (konfirmasiExit === false) {
+        alert("Anda akan keluar dari aplikasi.")
+    }
+    </script>

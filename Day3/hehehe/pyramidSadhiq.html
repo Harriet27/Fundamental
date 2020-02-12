@@ -1,0 +1,15 @@
+<script>
+var piramid = '';
+var x = 1;
+    for( var line = 1; line <= 15; line++ ) {
+        for( var drawSpace = 14; drawSpace >= line; drawSpace-- ) {
+            piramid += ' ';
+        }
+        for( var drawStar = 1; drawStar < x; drawStar++) {
+            piramid += '*';
+        }
+        x += 2;
+        piramid += '*\n';
+    }
+console.log(piramid)
+</script>

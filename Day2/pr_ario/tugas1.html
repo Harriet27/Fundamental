@@ -1,0 +1,17 @@
+<script>
+    var konfirmasi = true;
+    while( konfirmasi ) {
+        
+        var x = prompt('Silakan masukkan data:');
+
+        if( Number(x) ) {
+            alert('Tipe data input Anda adalah Number')
+        } else {
+            alert('Tipe data input Anda adalah String');
+        }
+
+    konfirmasi = confirm('Anda ingin mencoba kembali?');
+    }
+    alert('Terima kasih!');
+
+</script>

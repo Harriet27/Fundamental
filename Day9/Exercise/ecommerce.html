@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Toko Susilo</title>
+    <script defer src="./ecommerce.js"></script>
+    <style>
+        table,th,td {
+            border : 1px solid black;
+            border-collapse: collapse;
+        }
+        table {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<center>
+    <table>
+        <thead>
+            <th>Form Product</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div>
+                        <form action="">
+                            <p>Nama <input type="text" id="name"></p>
+                            
+                            <p>Harga <input type="number" id="price"></p>
+                            
+                            <p>Stok <input type="number" id="stock"></p>
+                            
+                            <p>Kategori 
+                                <select id="category">
+                                    <option value="elektronik">Elektronik</option>
+                                    <option value="Pakaian">Pakaian</option>
+                                    <option value="Otomotif">Otomotif</option>
+                                </select>
+                            </p>
+                            
+                            <p>Kondisi 
+                                <input type="radio" name="condition" value="new" checked> Baru
+                                <input type="radio" name="condition" value="old"> Second
+                            </p>
+                            
+                            <input type="button" value="Add Product" onclick="addNewProduct()">
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Data Product</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Harga</th>
+                            <th>Stok</th>
+                            <th>Kategori</th>
+                            <th>Kondisi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="hasil">
+                        <!-- isi -->
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+</center>
+</body>
+
+<!-- SEPARATOR -->
+
+<script>
+
+</script>
+</html>

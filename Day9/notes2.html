@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Latihan</title>
+</head>
+<body>
+    <center>
+        <form>
+            Nama : <input type="text" id="nama" placeholder="Masukkan nama anda" value>
+            <br><br>
+            Umur : <input type="number" id="umur" placeholder="Masukkan umur anda" value>
+            <br><br>
+            Gender : <input type="radio" name="gender" value="pria"> Pria
+            <input type="radio" name="gender" value="wanita"> Wanita
+            <br>
+            <input type="button" value="Submit" onclick="clickMe()">
+            <p id="hasil">
+                [ data muncul disini ]
+            </p>
+        </form>
+    </center>
+</body>
+
+<!-- SEPARATOR -->
+
+<script>
+function clickMe() {
+    var nama = document.getElementById("nama").value;
+    var umur = document.getElementById("umur").value;
+    var gender = document.querySelector('input[name=gender]:checked').value;
+    return document.getElementById("hasil").innerHTML = `Nama : ${nama} <br> Umur : ${umur} <br> Gender : ${gender}`;
+}
+</script>
+</html>

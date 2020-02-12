@@ -1,0 +1,48 @@
+<script>
+    // var inpAngka1 = prompt("Input first number!");
+    // var inpAngka2 = prompt("Input second number!");
+    // var num1 = parseInt(inpAngka1);
+    // var num2 = parseInt(inpAngka2);
+    // if (num1 > num2) {
+    //     alert(`${num1} lebih besar dari ${num2}`);
+    // } else if (num1 < num2) {
+    //     alert(`${num1} lebih kecil dari ${num2}`);
+    // } else {
+    //     alert(`${num1} sama dengan ${num2}`);
+    // }
+
+   
+    // var brpApel = prompt("Beli apel brp kg?");
+    // var brpMangga = prompt("Beli mangga brp kg?");
+    // var brpKiwi = prompt("Beli kiwi brp kg?");
+    // var apel = 10000;
+    // var mangga = 20000;
+    // var kiwi = 30000;
+    // var total = ((apel * brpApel) + (mangga * brpMangga) + (kiwi * brpKiwi));
+    // var rupiah = total.toLocaleString("id-ID");
+    // alert(`Apel => ${brpApel}kg` + '\n' + `Mangga => ${brpMangga}kg` + '\n' + `Kiwi => ${brpKiwi}kg` + '\n' + '\n' + `Total belanja anda adalah Rp ${rupiah}`);
+
+    var menu = prompt("Mau beli apa?" + '\n' + "1. Apel" + '\n' + "2. Mangga" + '\n' + "3. Kiwi");
+    if (menu === "1") {
+        var jmlApel = prompt("Beli apel berapa kilo?");
+        if (jmlApel < 10) {
+            alert(`Anda beli ${jmlApel}kg apel`);
+        } else {
+            alert(`Stok apel tidak mencukupi`);
+        }
+    } else if (menu === "2") {
+        var jmlMangga = prompt("Beli mangga berapa kilo?");
+        if (jmlMangga < 10) {
+            alert(`Anda beli ${jmlMangga}kg mangga`);
+        } else {
+            alert(`Stok mangga tidak mencukupi`);
+        }
+    } else if (menu === "3") {
+        var jmlKiwi = prompt("Beli kiwi berapa kilo?");
+        if (jmlKiwi < 10) {
+            alert(`Anda beli ${jmlKiwi}kg kiwi`);
+        } else {
+            alert(`Stok kiwi tidak mencukupi`);
+        }
+    }
+</script>

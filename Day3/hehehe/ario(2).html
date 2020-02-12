@@ -1,0 +1,50 @@
+<script>
+
+    var stock = 10;
+    var apel = 10000;
+    var mangga = 20000;
+    var kiwi = 30000;
+    
+    var proteksiA = true;
+    while( proteksiA ) {
+        var apple = parseInt(prompt('Berapa Kg Apel yang ingin Anda beli? '));
+        if( apple <= stock ) {
+            var proteksiM = true;
+            while( proteksiM ) {
+                var mango = parseInt(prompt('Berapa Kg Mangga yang ingin Anda beli? '));
+                if( mango <= stock ) {
+                    var proteksiK = true;
+                    while( proteksiK ) {
+                        var kiwie = parseInt(prompt('Berapa Kg Kiwi yang ingin Anda beli? '));
+                        var jumlah = (apple * apel) + (mango * mangga) + (kiwie * kiwi);
+                        if( kiwie <= stock ) {
+                            var uangUser = prompt('Total harga belanja Anda adalah Rp ' + jumlah + '\n\nSilakan masukkan jumlah uang Anda');
+                            if( uangUser >= jumlah ) {
+                                alert('Terima kasih! \n\nUang kembalian Anda adalah Rp ' + (uangUser - jumlah));
+                                proteksiA = false;
+                                proteksiM = false;
+                                proteksiK = false;
+                            } else if( uangUser < jumlah ) {
+                                alert('Maaf, uang Anda tidak cukup!');
+                                proteksiA = false;
+                                proteksiM = false;
+                                proteksiK = false;
+                            } else {
+                                alert('Maaf, silakan input jumlah uang Anda dengan angka');
+                                proteksiA = false;
+                                proteksiM = false;
+                                proteksiK = false;
+                            }
+                        } else {
+                            alert('Stock Kiwi kami adalah ' + stock + ' Kg.\n\nSilakan masukkan kembali jumlah Kg Kiwi yang ingin dibeli');
+                        }
+                    }
+                } else {
+                    alert('Stock Mangga kami adalah ' + stock + ' Kg.\n\nSilakan masukkan kembali jumlah Kg Mangga yang ingin dibeli.');
+                }
+            }
+        } else {
+            alert('Stock Apel kami adalah ' + stock + ' Kg.\n\nSilakan masukkan kembali jumlah Kg Apel yang ingin dibeli.');
+        }
+    }
+</script>

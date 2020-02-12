@@ -1,0 +1,35 @@
+<script>
+    var konfirmasi = true;
+
+    while( konfirmasi ) {
+
+        var stock = 10;
+        var apel = 10000;
+        var mangga = 20000;
+        var kiwi = 30000;
+        
+        var apple = parseInt(prompt('Berapa Kg Apel yang ingin Anda beli? '));
+        var mango = parseInt(prompt('Berapa Kg Mangga yang ingin Anda beli? '));
+        var kiwie = parseInt(prompt('Berapa Kg Kiwi yang ingin Anda beli? '));
+        var jumlah = (apple * apel) + (mango * mangga) + (kiwie * kiwi);
+        
+        if( apple <= stock && mango <= stock && kiwie <= stock ) {
+            var uangUser = prompt('Total harga belanja Anda adalah Rp ' + jumlah + '\n\nSilakan masukkan jumlah uang Anda');
+            if( uangUser >= jumlah ) {
+                alert('Terima kasih! \n\nUang kembalian Anda adalah Rp ' + (uangUser - jumlah));
+            } else if( uangUser < jumlah ) {
+                alert('Maaf, uang Anda tidak cukup!');
+            } else {
+                alert('Maaf, silakan input jumlah uang Anda dengan angka');
+            }
+        } else if( apple > stock || mango > stock || kiwie > stock ) {
+            alert('Maaf, salah satu / semua stock pilihan belanja Anda tidak mencukupi');
+        } else {
+            alert('Maaf, yang Anda input bukan angka!');
+        }
+
+        konfirmasi = confirm('Anda ingin mencoba kembali?');
+    }
+
+    alert('Terima kasih telah mencoba');
+</script>

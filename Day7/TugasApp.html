@@ -1,0 +1,243 @@
+<script>
+// ###################### //
+// MARKET V.ENTAHBERAPA
+// ###################### //
+
+class produk{
+    constructor(nama, stock, price){
+        this.nama = nama
+        this.stock = stock
+        this.price = price
+        this.qty = 0
+        this.total = 0
+    }
+}
+
+class fastFood extends produk{
+    constructor(nama, stock, price, expired){
+        super(nama, stock, price)
+        this.expired = expired
+        this.category = 1
+    }
+}
+
+class pakaian extends produk{
+    constructor(nama, stock, price, size){
+        super(nama, stock, price)
+        this.size = size
+        this.category = 2
+    }
+}
+
+class elektronik extends produk{
+    constructor(nama, stock, price, warranty){
+        super(nama, stock, price)
+        this.warranty = warranty
+        this.category = 3
+    }
+}
+
+class buah extends produk{
+    constructor(nama, stock, price, sugarLvl){
+        super(nama, stock, price)
+        this.sugarLvl = sugarLvl
+        this.category = 4
+    }
+}
+
+var database = [
+    {nama: 'BigMac', stock: 5, price: 10000, expired: '2020' ,qty: 0, total: 0, category: 1},
+    {nama: 'T-Shirt', stock: 7, price:15000, size: 'M', qty: 0, total: 0, category: 2},
+    {nama: 'iPhone 20', stock: 8, price:20000, warranty: '2 Years', qty: 0, total: 0, category: 3},
+    {nama: 'Apple', stock:10, price: 10000, sugarLvl: 'Medium', qty:0, total:0, category: 4}
+];
+
+var mainApp = false
+do {
+    var mainOpt = parseInt(prompt(
+        'Apa yang ingin anda lakukan ?\n\n' +
+        '0. Menampilkan Daftar Produk\n' +
+        '1. Menambah Produk\n' +
+        '2. Menghapus Produk\n' +
+        '3. Membeli Produk\n' +
+        '4. EXIT'
+    ))
+
+    if(mainOpt === 0) {
+        var productList = 'Daftar Produk \n\n'
+        for (var i = 0; i < database.length; i++) {
+            if(database[i].category === 1){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: Rp.' + database[i].price + ' | Expired: ' + database[i].expired + '\n'
+            }else if(database[i].category === 2){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: ' + database[i].price + ' | Size: ' + database[i].size + '\n'
+            }else if(database[i].category === 3){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: ' + database[i].price + ' | Warranty: ' + database[i].warranty + '\n'
+            }else if(database[i].category === 4){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: ' + database[i].price + ' | Sugar Level: ' + database[i].sugarLvl + '\n'
+            }
+        }
+        alert(productList)
+        mainApp = confirm('Kembali ke menu ?')
+    } else if (mainOpt === 1) {
+        var productChoice = prompt('Silahkan input angka dari kategori produk yang ingin ditambahkan.\n\n1. Fast Food\n2. Pakaian\n3. Elektronik\n4. Buah')
+        if(productChoice == 1){
+            var namaFastFood = prompt('Silahkan input nama Fast Food')
+            var stockFastFood = parseInt(prompt('Silahkan input jumlah stock '+namaFastFood))
+            var priceFastFood = parseInt(prompt('Silahkan input harga '+namaFastFood))
+            var expriredFastFood = prompt('Silahkan input tahun expired '+namaFastFood)
+            var newFastFood = new fastFood(namaFastFood, stockFastFood, priceFastFood, expriredFastFood)
+            database.push(newFastFood)
+        }else if(productChoice == 2){
+            var namaPakaian = prompt('Silahkan input nama Pakaian')
+            var stockPakaian = parseInt(prompt('Silahkan input jumlah stock '+namaPakaian))
+            var pricePakaian = parseInt(prompt('Silahkan input harga '+namaPakaian))
+            var sizePakaian = prompt('Silahkan input size '+namaPakaian)
+            var newPakaian = new pakaian(namaPakaian, stockPakaian, pricePakaian, sizePakaian)
+            database.push(newPakaian)
+        }else if(productChoice == 3){
+            var namaElektronik = prompt('Silahkan input nama Elektronik')
+            var stockElektronik = parseInt(prompt('Silahkan input jumlah stock '+namaElektronik))
+            var priceElektronik = parseInt(prompt('Silahkan input harga '+namaElektronik))
+            var warrantyElektronik = prompt('Silahkan input warranty '+namaElektronik)
+            var newElektronik = new elektronik(namaElektronik, stockElektronik, priceElektronik, warrantyElektronik)
+            database.push(newElektronik)
+        }else if(productChoice == 4){
+            var namaBuah = prompt('Silahkan input nama Buah')
+            var stockBuah = parseInt(prompt('Silahkan input jumlah stock '+namaBuah))
+            var priceBuah = parseInt(prompt('Silahkan input harga '+namaBuah))
+            var sugarLvlBuah = prompt('Silahkan input sugar level '+namaBuah)
+            var newBuah = new buah(namaBuah, stockBuah, priceBuah, sugarLvlBuah)
+            database.push(newBuah)
+        }
+
+        var productList = 'Daftar Produk \n\n'
+        for (var i = 0; i < database.length; i++) {
+            if(database[i].category === 1){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: Rp.' + database[i].price + ' | Expired: ' + database[i].expired + '\n'
+            }else if(database[i].category === 2){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: ' + database[i].price + ' | Size: ' + database[i].size + '\n'
+            }else if(database[i].category === 3){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: ' + database[i].price + ' | Warranty: ' + database[i].warranty + '\n'
+            }else if(database[i].category === 4){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: ' + database[i].price + ' | Sugar Level: ' + database[i].sugarLvl + '\n'
+            }
+        }
+        alert(productList)
+        mainApp = confirm('Kembali ke menu ?')
+    } else if (mainOpt === 2) {
+        var productList= 'Pilih buah yang ingin dihapus\n\n'
+        for (var i = 0; i < database.length; i++) {
+            productList += (i+1) + ' ' + database[i].nama + '\n'
+        }
+        var selected = parseInt(prompt(productList)) - 1
+        database.splice(selected, 1)
+        var productList = 'Daftar Produk \n\n'
+        for (var i = 0; i < database.length; i++) {
+            if(database[i].category === 1){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: Rp.' + database[i].price + ' | Expired: ' + database[i].expired + '\n'
+            }else if(database[i].category === 2){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: ' + database[i].price + ' | Size: ' + database[i].size + '\n'
+            }else if(database[i].category === 3){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: ' + database[i].price + ' | Warranty: ' + database[i].warranty + '\n'
+            }else if(database[i].category === 4){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: ' + database[i].price + ' | Sugar Level: ' + database[i].sugarLvl + '\n'
+            }
+        }
+        alert(productList)
+        mainApp = confirm('Kembali ke menu ?')
+    } else if (mainOpt === 3) {
+        var productList = 'Silahkan input angka produk yang ingin anda beli.\n\n'
+        for (var i = 0; i < database.length; i++) {
+            if(database[i].category === 1){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: Rp.' + database[i].price + ' | Expired: ' + database[i].expired + '\n'
+            }else if(database[i].category === 2){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: ' + database[i].price + ' | Size: ' + database[i].size + '\n'
+            }else if(database[i].category === 3){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: ' + database[i].price + ' | Warranty: ' + database[i].warranty + '\n'
+            }else if(database[i].category === 4){
+                productList += (i+1) + '. ' + database[i].nama + ' | Stock: ' + database[i].stock + ' | Price: ' + database[i].price + ' | Sugar Level: ' + database[i].sugarLvl + '\n'
+            }
+        }
+        
+        var proteksi = true
+        // var keranjang = 'Keranjang Belanja Anda:\n'
+        while(proteksi){
+            var buyChoice = parseInt(prompt((productList+'\n\n0. Lanjut Pembayaran')))
+            if(buyChoice === 0 || buyChoice !== NaN){
+                var proteksi = false
+            }else{
+            var qtyCondition = true
+            do {                
+                if(database[buyChoice-1].qty === database[buyChoice-1].stock){
+                    alert('Anda telah melebihi stock maksimal untuk pembelian '+database[buyChoice-1].nama)
+                    qtyCondition = false
+                }else{
+                    var buyQty = parseInt(prompt('Berapa '+database[buyChoice-1].nama+' yang ingin ada beli? (Stock : '+database[buyChoice-1].stock+')'))
+                    if(buyQty <= database[buyChoice-1].stock){
+                        database[buyChoice-1].qty += buyQty;
+                        // keranjang += database[buyChoice-1].nama + ': ' + database[buyChoice-1].qty +'\n';
+                        qtyCondition = false
+                    }else{
+                        alert('Pembelian anda melebihi stock yang tersedia.')
+                    }
+                }
+            }while(qtyCondition);
+            }
+        }
+        var totalPrice = 0
+        for(i = 0 ; i < database.length ; i++){
+            database[i].total = database[i].qty * database[i].price
+            totalPrice += database[i].total
+        }
+        var finalReport = ''
+        for(i = 0 ; i < database.length ; i++){
+            if(database[i].total > 0){
+            finalReport +=  database[i].nama + ' : ' + database[i].qty + ' x ' + database[i].price + ' = ' + database[i].total + '\n'
+            }
+        }
+        // Menampilkan informasi belanja termasuk total uang yang harus dibayar
+        alert(
+            'Detail Belanja \n\n' + finalReport + '\nTotal : ' + totalPrice
+        )
+        // // Menerima jumlah uang dari user
+        var moneyCondition = false
+        do {
+
+            var money = prompt('Masukkan jumlah uang')
+
+            // Jika uang yang diberikan lebih sedikit dari total belanja
+            if(money < totalPrice){
+                // Menghitung jumlah kekurangan uang
+                var margin = totalPrice - money
+                // Menampilkan informasi kekurangan uang yang harus dipenuhi
+                alert('Uang yang Anda masukkan kurang ' + margin)
+                // Mengatur variabel agar mengulang proses yang ada didalam do while
+                moneyCondition = true
+
+            } else {
+                // Menghitung kembalian
+                var changeMoney = money - totalPrice
+                // Menampilkan informasi kembalian
+                alert(
+                    'Terimakasih \n\n' +
+                    'Uang kembali untuk Anda : ' + changeMoney
+                )
+                // Mengatur variabel agar tidak mengulang proses yang ada didalam do while
+                moneyCondition = false
+            }
+
+        } while (moneyCondition);
+        
+        for(i=0;i<database.length;i++)
+        if(database[i].qty>0){
+            database[i].stock = database[i].stock - database[i].qty;
+            database[i].qty=0
+        }
+
+        mainApp = confirm('Kembali ke menu ?')
+
+    } else if (mainOpt === 4){
+        mainApp = false
+    }
+} while (mainApp);    
+</script>

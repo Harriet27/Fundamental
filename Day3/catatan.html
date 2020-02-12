@@ -1,0 +1,99 @@
+<script>
+// Loop 1 - 10
+var num = 0;
+while (num < 10) {
+  num++;
+  console.log("nomor urut " + num);
+}
+
+// Odd Even
+var num = 0;
+while (num < 10) {
+  if (num % 2 === 0) {
+    console.log("Genap");
+  } else {
+    console.log("Ganjil");
+  }
+  num++;
+}
+console.log("Halo");
+
+// Asterisk 1
+var output = '';
+for (var i = 1; i <= 5; i++) {
+  output += '*';
+}
+console.log(output);
+
+// Beli buah
+var proteksi =true;
+while (proteksi) {
+  var pilihan = prompt('1. Apel \n 2. Mangga \n 3. Kiwi');
+  
+  if (pilihan === '1') {
+    alert('anda beli apel');
+    var proteksiJumlah1 = true;
+    while (proteksiJumlah1) {
+      var jumlahApel = parseInt(prompt('Mau Beli apel berapa?'));
+      if (jumlahApel > 10) {
+        alert('stock tidak cukup');
+      } else {
+        var totalApel = 10000 * jumlahApel;
+        alert(totalApel);
+        var exit = prompt('Mau belanja lagi? \n 1. Ya \n 2. Tidak');
+        if (exit === '1') {
+          proteksiJumlah1 = false;
+        } else if (exit === "2") {
+          proteksiJumlah1 = false;
+          proteksi = false;
+        } else {
+          alert('Input salah');
+        }
+      }
+    } 
+  } 
+    
+  else if (pilihan === '2'){
+    alert('anda beli mangga');
+    var proteksiJumlah2 = true;
+    while (proteksiJumlah2) {
+      var jumlahMangga = parseInt(prompt('Mau Beli mangga berapa?'));
+      if (jumlahMangga > 10) {
+        alert('stock tidak cukup');
+      } else {
+        var totalMangga = 20000 * jumlahMangga;
+        alert(totalMangga);
+        proteksiJumlah2 = false;
+      }
+    }
+  } 
+  
+  else if (pilihan === '3') {
+    alert('anda beli kiwi');
+    var proteksiJumlah3 = true;
+    while (proteksiJumlah3) {
+      var jumlahKiwi = parseInt(prompt('Mau Beli kiwi berapa?'));
+      if (jumlahKiwi > 10) {
+        alert('stock tidak cukup');
+      } else {
+        var totalKiwi = 30000 * jumlahKiwi;
+        alert(totalKiwi);
+        proteksiJumlah3 = false;
+      }
+    }
+  } else {
+    alert('salah input');
+  }
+}
+alert("Terima kasih telah berbelanja");
+
+// Asterisk 2
+var output = '';
+for (var i = 0; i < 10; i++) {
+  for (var j = 0; j < 5; j++) {
+    output += '*';
+  }
+  output += '\n';
+}
+console.log(output);
+</script>

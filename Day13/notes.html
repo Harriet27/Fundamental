@@ -1,0 +1,17 @@
+<script>
+// tugas dari string, cari duplikatnya
+// jumlah duplikat dan apa yg terduplikat
+function dupeCount (str) {
+    let count = 0;
+    let buffer = '';
+    str = str.split('').sort().join('');
+    for (var i = 0; i < str.length; i++) {
+        if (str[i] === str[i+1] && str[i] != buffer) {
+            buffer = str[i];
+            count++;
+        }
+    }
+    return count;
+}
+console.log(dupeCount('aassddjkasjkxa'));
+</script>
